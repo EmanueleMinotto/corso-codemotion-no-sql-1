@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: corso_codemotion
+      MYSQL_USER: codemotion
+      MYSQL_PASSWORD: codemotion
+    ports:
+      - '3306:3306'
+    expose:
+      - 3306
+
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=corso_codemotion
+      - MONGO_INITDB_ROOT_USERNAME=codemotion
+      - MONGO_INITDB_ROOT_PASSWORD=codemotion
+    ports:
+      - '27017-27019:27017-27019'
+    expose:
+      - 27017
+      - 27018
+      - 27019
